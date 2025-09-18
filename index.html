@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Drone Technology in Agriculture Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; background: #f5f7fa; }
+        header { background: #4caf50; color: white; padding: 20px; }
+        main { padding: 30px; }
+        .card { background: white; border-radius: 10px; box-shadow: 0 2px 8px #aaa2; padding: 20px; margin-bottom: 20px; }
+        .chart-container { width: 100%; max-width: 600px; margin: 0 auto 20px; }
+        footer { text-align: center; padding: 15px; background: #eee; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Drone Technology in Agriculture</h1>
+        <p>Dashboard Overview</p>
+    </header>
+    <main>
+        <div class="card">
+            <h2>Crop Health Overview</h2>
+            <div class="chart-container">
+                <canvas id="cropChart"></canvas>
+            </div>
+        </div>
+        <div class="card">
+            <h2>Drone Activity</h2>
+            <div class="chart-container">
+                <canvas id="droneChart"></canvas>
+            </div>
+        </div>
+    </main>
+    <footer>
+        &copy; 2025 Drone Agri Dashboard
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const ctxCrop = document.getElementById('cropChart').getContext('2d');
+        const cropChart = new Chart(ctxCrop, {
+            type: 'pie',
+            data: {
+                labels: ['Healthy', 'Stressed', 'Diseased'],
+                datasets: [{
+                    data: [65, 25, 10],
+                    backgroundColor: ['#4caf50', '#ffeb3b', '#f44336']
+                }]
+            },
+        });
+        const ctxDrone = document.getElementById('droneChart').getContext('2d');
+        const droneChart = new Chart(ctxDrone, {
+            type: 'bar',
+            data: {
+                labels: ['Field A', 'Field B', 'Field C'],
+                datasets: [{
+                    label: 'Flight Hours',
+                    data: [12, 9, 5],
+                    backgroundColor: '#2196f3'
+                }]
+            },
+        });
+    </script>
+</body>
+</html>
